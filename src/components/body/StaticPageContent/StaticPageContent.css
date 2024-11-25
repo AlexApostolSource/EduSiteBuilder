@@ -1,0 +1,54 @@
+¡.uploader-container {
+    text-align: center;
+    margin: 20px;
+  }
+  
+  .uploader-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .uploader-form {
+    max-width: 400px;
+    margin: auto;
+  }
+  
+  .uploader-textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .uploader-file-input {
+    margin-bottom: 15px;
+  }
+  
+  .uploader-preview {
+    margin-bottom: 15px;
+  }
+  
+  .uploader-image {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  .uploader-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .uploader-button:hover {
+    background-color: #45a049;
+  }
+  

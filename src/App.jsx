@@ -1,14 +1,15 @@
-import { useState } from 'react'
-import './App.css'
-import { Navbar } from './components/Navbar/Navbar'
+import { useState } from "react";
+import "./App.css";
+import { Navbar } from "./components/Navbar/Navbar";
+import PageContentTypeSelector from "./components/body/PageContentTypeSelector";
 
 function App() {
-
   return (
     <>
-    <Navbar/>
+      <Navbar />
+      <PageContentTypeSelector />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

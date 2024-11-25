@@ -9,10 +9,8 @@ export const LogoUploader = ({ isPreviewing }) => {
     // Trigger the file input click
     console.log(isPreviewing);
     if (isPreviewing) {
-      console.log("returning");
       return;
     }
-    console.log("passing");
     fileInputRef.current.click();
   };
 
