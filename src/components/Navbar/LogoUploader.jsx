@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { useState } from "react";
+import "./Navbar.css";
 
 export const LogoUploader = ({ isPreviewing }) => {
   const fileInputRef = useRef(null);

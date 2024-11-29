@@ -4,10 +4,6 @@ import "./StaticPageContent.css"; // Import the CSS file
 
 export const StaticPageContent = ({ isPreviewing }) => {
   const [image, setImage] = useState(null); // Placeholder image
-  const [text, setText] = useState(
-    "This is a placeholder text. Click to edit."
-  ); // Placeholder text
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [paragraphText, setParagraphText] = useState(
     "Click me to edit this text"
@@ -61,55 +57,51 @@ export const StaticPageContent = ({ isPreviewing }) => {
 
   return (
     <div className="modal-container">
-      <div className="modal-header"></div>
-      <div className="modal-body">
-        {
-          <div className="edit-state">
-            <label htmlFor="imageUpload" className="image-label">
-              <img
-                src={
-                  image || "https://via.placeholder.com/800x400?text=Loading..."
-                } // Show loading placeholder if image is null
-                alt="Uploaded"
-                className="image-preview"
-              />
-              <input
-                id="imageUpload"
-                type="file"
-                accept="image/*"
-                onChange={handleImageChange}
-                style={{ display: "none" }}
-              />
-            </label>
-            <p onClick={handleTextClick}>{paragraphText}</p>
-            {isModalOpen && (
-              <div style={modalStyles.overlay}>
-                <div style={modalStyles.modal}>
-                  <h2>Edit Text</h2>
-                  <input
-                    type="text"
-                    value={inputText}
-                    onChange={(e) => setInputText(e.target.value)}
-                    placeholder="Enter new text here"
-                    style={modalStyles.input}
-                  />
-                  <div style={modalStyles.buttons}>
-                    <button onClick={saveText} style={modalStyles.button}>
-                      Save
-                    </button>
-                    <button
-                      onClick={handleTextClick}
-                      style={modalStyles.button}
-                    >
-                      Cancel
-                    </button>
-                  </div>
+      {
+        <div className="edit-state">
+          <label htmlFor="imageUpload" className="image-label">
+            <img
+              src={
+                image || "https://via.placeholder.com/800x400?text=Loading..."
+              } // Show loading placeholder if image is null
+              alt="Uploaded"
+              className="image-preview"
+            />
+            <input
+              id="imageUpload"
+              type="file"
+              accept="image/*"
+              onChange={handleImageChange}
+              style={{ display: "none" }}
+            />
+          </label>
+          <p onClick={handleTextClick} className="text-paragraph">
+            {paragraphText}
+          </p>
+          {isModalOpen && (
+            <div style={modalStyles.overlay}>
+              <div style={modalStyles.modal}>
+                <h2>Edit Text</h2>
+                <input
+                  type="text"
+                  value={inputText}
+                  onChange={(e) => setInputText(e.target.value)}
+                  placeholder="Enter new text here"
+                  style={modalStyles.input}
+                />
+                <div style={modalStyles.buttons}>
+                  <button onClick={saveText} style={modalStyles.button}>
+                    Save
+                  </button>
+                  <button onClick={handleTextClick} style={modalStyles.button}>
+                    Cancel
+                  </button>
                 </div>
               </div>
-            )}
-          </div>
-        }
-      </div>
+            </div>
+          )}
+        </div>
+      }
     </div>
   );
 };

@@ -3,6 +3,7 @@ import "./PageContentTypeSelector.css"; // Import the CSS file
 import { ContentTypeModal } from "./ContentTypeModal/ContentTypeModal.JSX";
 import { PageContentType } from "../../assets/shared/Shared";
 import { StaticPageContent } from "./StaticPageContent/StaticPageContent";
+
 // Main Component
 export const PageContentTypeSelector = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -13,21 +14,33 @@ export const PageContentTypeSelector = () => {
     console.log(`Selected Content Type: ${type}`);
   };
 
+  const renderContent = () => {
+    if (selectedContentType === PageContentType.STATIC_CONTENT) {
+      return <StaticPageContent />;
+    }
+    if (selectedContentType === PageContentType.LIST_CONTENT) {
+      return <p>Dynamic List</p>;
+    }
+    return null;
+  };
+
   return (
     <div className="full-page">
-      <button className="full-page-button" onClick={() => setIsModalOpen(true)}>
-        Select Content Type
-      </button>
+      {/* Conditionally render the button */}
+      {!selectedContentType && (
+        <button
+          className="full-page-button"
+          onClick={() => setIsModalOpen(true)}
+        >
+          Select Content Type
+        </button>
+      )}
       <ContentTypeModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         onSelect={handleSelect}
       />
-      {selectedContentType === PageContentType.STATIC_CONTENT ? (
-        <StaticPageContent />
-      ) : (
-        <p>Dynamic list </p>
-      )}
+      {renderContent()}
     </div>
   );
 };
