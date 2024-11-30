@@ -3,22 +3,7 @@
     max-height: 100%;
     margin: 20px auto;
   }
-  
-
-  .image-wrapper {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-  }
-  
-  .image-preview {
-    width: 100%;
-    object-fit: cover;
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out;
-  }
-
-  
+   
   .text-overlay {
     position: absolute;
     top: 10px;
