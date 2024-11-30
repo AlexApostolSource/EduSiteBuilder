@@ -4,12 +4,17 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    font-size: large;
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
 }
 
+
 .navbar {
+    font-family: Arial, sans-serif;
+    font-size: large;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -42,10 +47,82 @@ body {
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
-    padding: 0;
-    text-decoration: none;
 }
 
 .preview-button:hover {
     text-decoration: underline;
+}
+
+.abrir-menu {
+    display: none;
+}
+
+.cerrar-menu-visible {
+    display: none;
+    opacity: 0;
+}
+
+.cerrar-menu {
+    display: none;
+    opacity: 0;
+}
+
+@media screen and (max-width: 550px) {
+    .abrir-menu,
+    .cerrar-menu {
+        display: block;
+        border: 0;
+        font-size: 1.25rem;
+        background-color: transparent;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .abrir-menu {
+        color: #1c1c1c;
+    }
+
+    .navbar {
+        opacity: 0;
+        visibility: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        gap: 1rem;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #1c1c1c;
+        padding: 2rem;
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
+    }
+
+    .navbar-links {
+        flex-direction: column;
+        align-items: end;
+        
+        
+    }
+
+    .nav.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .abrir-menu-visible {
+        display: none;
+        opacity: 0;
+    }
+
+    .cerrar-menu-visible {
+        opacity: 1;
+       display: flex;
+       text-align: center;
+    }
+
+    .navbar-logo .logo-image {
+        width: 120px;
+        height: auto;
+    }
 }
