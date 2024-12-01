@@ -8,9 +8,17 @@ export const StaticPageContent = ({ isPreviewing }) => {
   return (
     <div className="modal-container">
       {
-        <div className="edit-state">
-          <ImageUploader isPreviewing={isPreviewing}></ImageUploader>
-          <EditableParagraph></EditableParagraph>
+        <div>
+          <ImageUploader
+            isPreviewing={isPreviewing}
+            width={100}
+            widthValue={"%"}
+            height={100}
+            heightValue={"%"}
+          ></ImageUploader>
+          <EditableParagraph
+            placeholder={"Click to edit text"}
+          ></EditableParagraph>
         </div>
       }
     </div>

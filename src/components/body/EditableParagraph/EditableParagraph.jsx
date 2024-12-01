@@ -1,10 +1,8 @@
 import { useState } from "react";
 import "./EditableParagraph.css";
-export const EditableParagraph = () => {
+export const EditableParagraph = ({ placeholder }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [paragraphText, setParagraphText] = useState(
-    "Click me to edit this text"
-  );
+  const [paragraphText, setParagraphText] = useState(placeholder);
   const [inputText, setInputText] = useState("");
 
   const saveText = () => {

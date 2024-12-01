@@ -1,11 +1,10 @@
 .full-page {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
+ 
   display: flex;
   justify-content: center;
   align-items: center;
-
+  padding-bottom: 100px;
+  width: 100%;
 }
   
 .full-page-button {

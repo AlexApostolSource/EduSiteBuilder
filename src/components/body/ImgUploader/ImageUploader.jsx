@@ -1,7 +1,13 @@
 import "./ImageUploader.css";
 import { useEffect, useState } from "react";
 
-export const ImageUploader = ({ isPreviewing }) => {
+export const ImageUploader = ({
+  isPreviewing,
+  width,
+  widthValue,
+  height,
+  heightValue,
+}) => {
   const [image, setImage] = useState(null); // Placeholder image
 
   // Fetch placeholder image on component mount
@@ -39,11 +45,15 @@ export const ImageUploader = ({ isPreviewing }) => {
   };
 
   return (
-    <label htmlFor="imageUpload" className="image-label">
+    <div>
       <img
         src={image || "https://via.placeholder.com/800x400?text=Loading..."} // Show loading placeholder if image is null
         alt="Uploaded"
         className="image-preview"
+        style={{
+          maxWidth: `${width}${widthValue}`,
+          maxHeight: `${height}${heightValue}`,
+        }}
       />
       <input
         id="imageUpload"
@@ -52,6 +62,6 @@ export const ImageUploader = ({ isPreviewing }) => {
         onChange={handleImageChange}
         style={{ display: "none" }}
       />
-    </label>
+    </div>
   );
 };
