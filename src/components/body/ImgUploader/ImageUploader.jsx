@@ -8,8 +8,9 @@ export const ImageUploader = ({
   height,
   heightValue,
   onImageChange,
+  providedImage,
 }) => {
-  const [image, setImage] = useState(null); // Placeholder image
+  const [image, setImage] = useState(providedImage); // Placeholder image
 
   // Fetch placeholder image on component mount
   useEffect(() => {
