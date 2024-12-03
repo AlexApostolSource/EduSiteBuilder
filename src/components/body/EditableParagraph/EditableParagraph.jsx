@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./EditableParagraph.css";
-export const EditableParagraph = ({ placeholder }) => {
+export const EditableParagraph = ({ placeholder, onTextChange }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [paragraphText, setParagraphText] = useState(placeholder);
   const [inputText, setInputText] = useState("");
@@ -9,6 +9,7 @@ export const EditableParagraph = ({ placeholder }) => {
     if (inputText.trim()) {
       setParagraphText(inputText);
     }
+    if (onTextChange) onTextChange(inputText); // Notify parent component
     handleTextClick(); // Close the modal
   };
 

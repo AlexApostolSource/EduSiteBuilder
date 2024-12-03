@@ -7,6 +7,7 @@ export const ImageUploader = ({
   widthValue,
   height,
   heightValue,
+  onImageChange,
 }) => {
   const [image, setImage] = useState(null); // Placeholder image
 
@@ -31,17 +32,30 @@ export const ImageUploader = ({
   }, []);
 
   const handleImageChange = (e) => {
-    console.log("handleImageClick");
+    console.log("handleImageClick triggered");
     if (isPreviewing) {
+      console.log("Previewing is enabled, no action taken.");
       return;
     }
+
     const file = e.target.files[0];
     if (file) {
+      console.log("File selected:", file);
+
       const reader = new FileReader();
+
       reader.onloadend = () => {
+        console.log("FileReader result:", reader.result);
         setImage(reader.result); // Update state with the uploaded image
+        if (onImageChange) {
+          console.log("Calling onImageChange with:", reader.result);
+          onImageChange(reader.result);
+        }
       };
+
       reader.readAsDataURL(file); // Read the image file as a base64 data URL
+    } else {
+      console.warn("No file was selected.");
     }
   };
 

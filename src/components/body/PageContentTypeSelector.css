@@ -1,22 +1,22 @@
 .full-page {
- 
   display: flex;
-  justify-content: center;
   align-items: center;
   padding-bottom: 100px;
   width: 100%;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
 }
   
 .full-page-button {
   background: transparent; /* Make the button background transparent */
-  border: none; /* Remove border */
   cursor: pointer; /* Change cursor to pointer */
   padding: 15px 30px;
   font-size: 16px;
   color: #333;
   border: 2px solid #333;
   border-radius: 8px;
-  z-index: 1; /* Ensure the button is above other content */
+  /* Ensure the button is above other content */
   transition: all 0.3s ease; /* Add a smooth transition for hover effects */
 }
 
