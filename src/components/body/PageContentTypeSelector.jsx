@@ -3,6 +3,7 @@ import "./PageContentTypeSelector.css"; // Import the CSS file
 import { ContentTypeModal } from "./ContentTypeModal/ContentTypeModal.JSX";
 import { PageContentType } from "../../assets/shared/Shared";
 import { StaticPageContent } from "./StaticPageContent/StaticPageContent";
+import { DynamicList } from "./DynamicList/DynamicList";
 
 // Main Component
 export const PageContentTypeSelector = () => {
@@ -19,7 +20,7 @@ export const PageContentTypeSelector = () => {
       return <StaticPageContent />;
     }
     if (selectedContentType === PageContentType.LIST_CONTENT) {
-      return <p>Dynamic List</p>;
+      return <DynamicList />;
     }
     return null;
   };
