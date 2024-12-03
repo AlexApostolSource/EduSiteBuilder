@@ -59,7 +59,7 @@ export function Navbar() {
         className={navVisibile ? "abrir-menu-visible" : "abrir-menu"}
         onClick={toggleNav}
       >
-        <i class="bi bi-list"></i>
+        <i className="bi bi-list"></i>
       </button>
       <nav className={navVisibile ? `nav.visible` : `navbar`}>
         <ul className="navbar-links" onClick={openEditMenuModal}>

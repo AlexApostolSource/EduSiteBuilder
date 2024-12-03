@@ -31,6 +31,7 @@ export const ImageUploader = ({
   }, []);
 
   const handleImageChange = (e) => {
+    console.log("handleImageClick");
     if (isPreviewing) {
       return;
     }
@@ -45,7 +46,7 @@ export const ImageUploader = ({
   };
 
   return (
-    <div>
+    <label>
       <img
         src={image || "https://via.placeholder.com/800x400?text=Loading..."} // Show loading placeholder if image is null
         alt="Uploaded"
@@ -62,6 +63,6 @@ export const ImageUploader = ({
         onChange={handleImageChange}
         style={{ display: "none" }}
       />
-    </div>
+    </label>
   );
 };
