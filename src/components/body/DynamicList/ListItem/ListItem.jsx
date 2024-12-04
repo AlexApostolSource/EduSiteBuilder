@@ -2,6 +2,7 @@ import "./ListItem.css";
 
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { CustomCard } from "../../../shared/CustomCard/CustomCard";
 
 export const ListItem = ({ index, item }) => {
   const navigate = useNavigate();
@@ -17,13 +18,11 @@ export const ListItem = ({ index, item }) => {
 
   return (
     <div onClick={openStaticPage} style={{ cursor: "pointer" }}>
-      <h1>{item.title || "Item Title"}</h1>
-      <img
-        src={item.image || "https://via.placeholder.com/150"}
-        alt={`Item ${index}`}
-        style={{ maxWidth: "100px", maxHeight: "100px" }}
-      />
-      <p>{item.description || "No description provided"}</p>
+      <CustomCard
+        title={item.title}
+        image={item.image || "https://via.placeholder.com/150"}
+        text={item.description}
+      ></CustomCard>
     </div>
   );
 };
