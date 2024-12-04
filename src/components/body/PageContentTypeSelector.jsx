@@ -4,6 +4,7 @@ import { ContentTypeModal } from "./ContentTypeModal/ContentTypeModal.JSX";
 import { PageContentType } from "../../assets/shared/Shared";
 import { StaticPageContent } from "./StaticPageContent/StaticPageContent";
 import { DynamicList } from "./DynamicList/DynamicList";
+import { CustomButton } from "../shared/Button/CustomButton";
 
 // Main Component
 export const PageContentTypeSelector = () => {
@@ -29,12 +30,10 @@ export const PageContentTypeSelector = () => {
     <div className="full-page">
       {/* Conditionally render the button */}
       {!selectedContentType && (
-        <button
-          className="full-page-button"
-          onClick={() => setIsModalOpen(true)}
-        >
-          Select Content Type
-        </button>
+        <CustomButton
+          onClick={setIsModalOpen}
+          text={"Select Content Type"}
+        ></CustomButton>
       )}
       <ContentTypeModal
         isOpen={isModalOpen}

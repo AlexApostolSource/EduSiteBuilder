@@ -2,6 +2,7 @@ import "./DynamicListMenu.css";
 import { useState } from "react";
 import { ImageUploader } from "../../ImgUploader/ImageUploader";
 import { EditableParagraph } from "../../EditableParagraph/EditableParagraph";
+import { CustomButton } from "../../../shared/Button/CustomButton";
 export const DynamicListMenu = ({ menuItems, onSave, onClose }) => {
   const [imageData, setImageData] = useState(null); // To store image information
   const [paragraphText, setParagraphText] = useState("Add description");
@@ -25,8 +26,10 @@ export const DynamicListMenu = ({ menuItems, onSave, onClose }) => {
           placeholder={paragraphText}
           onTextChange={setParagraphText}
         ></EditableParagraph>
-        <button onClick={handleSave}>Save</button>
-        <button onClick={onClose}>Close</button>
+        <div className="dynamic-list-buttons">
+          <CustomButton onClick={handleSave} text={"Save"}></CustomButton>
+          <CustomButton onClick={onClose} text={"Close"}></CustomButton>
+        </div>
       </div>
     </div>
   );

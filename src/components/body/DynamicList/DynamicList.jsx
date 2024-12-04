@@ -3,6 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { DynamicListMenu } from "./DynamicListMenu/DynamicListMenu";
 import { ListItem } from "./ListItem/ListItem";
+import { CustomButton } from "../../shared/Button/CustomButton";
 
 export const DynamicList = ({ isPreviewing }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -24,7 +25,10 @@ export const DynamicList = ({ isPreviewing }) => {
 
   return (
     <div className="list-content">
-      <button onClick={openEditMenuModal}>Add item</button>
+      <CustomButton
+        onClick={openEditMenuModal}
+        text={"Add item"}
+      ></CustomButton>
 
       {/* Modal for adding items */}
       {isModalOpen && <DynamicListMenu onClose={onClose} onSave={handleSave} />}

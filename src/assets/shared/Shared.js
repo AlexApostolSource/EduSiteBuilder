@@ -3,3 +3,9 @@ export const PageContentType = {
   STATIC_CONTENT: "staticContent",
   UNDEFINED: "undefined",
 };
+
+export const ButtonType = {
+  green: "green",
+  red: "red",
+  blue: "blue",
+};
