@@ -4,7 +4,7 @@ import { EditableTitle } from "../EditableH1/EditableTitle";
 import { EditableParagraph } from "../../body/EditableParagraph/EditableParagraph";
 import { CustomButton } from "../Button/CustomButton";
 
-export const CustomCard = ({ title, text, image }) => {
+export const CustomCard = ({ title, text, image, action }) => {
   return (
     <div>
       <div className="blog-card">
@@ -26,7 +26,7 @@ export const CustomCard = ({ title, text, image }) => {
           <EditableParagraph
             placeholder={text === null ? text : "Click here to edit paragraph"}
           ></EditableParagraph>
-          <CustomButton text={"Read More"}></CustomButton>
+          <CustomButton text={"Read More"} onClick={action}></CustomButton>
         </div>
       </div>
     </div>

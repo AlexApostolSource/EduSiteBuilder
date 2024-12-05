@@ -21,11 +21,12 @@ export const ListItem = ({ index, item, isPreviewing }) => {
   };
 
   return (
-    <div onClick={openStaticPage} style={{ cursor: "pointer" }}>
+    <div style={{ cursor: "pointer" }}>
       <CustomCard
         title={item.title}
         image={item.image || "https://via.placeholder.com/150"}
         text={item.description}
+        action={openStaticPage}
       ></CustomCard>
     </div>
   );

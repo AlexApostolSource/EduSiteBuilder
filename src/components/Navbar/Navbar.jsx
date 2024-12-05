@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./Navbar.css";
 import { EditMenuModal } from "./EditMenuModal";
-import { LogoUploader } from "./LogoUploader";
 import { Actions } from "../../assets/shared/Shared";
+import { ImageUploader } from "../body/ImgUploader/ImageUploader";
 
 export function Navbar({ onClickPreview, action }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -43,7 +43,11 @@ export function Navbar({ onClickPreview, action }) {
         href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
       ></link>
       <div className="navbar-logo">
-        <LogoUploader
+        <ImageUploader
+          width={150}
+          widthValue={"px"}
+          height={150}
+          heightValue={"px"}
           className="logo-image"
           isPreviewing={action === Actions.EDIT}
         />
