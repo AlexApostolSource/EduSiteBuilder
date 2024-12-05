@@ -9,3 +9,8 @@ export const ButtonType = {
   red: "red",
   blue: "blue",
 };
+
+export const Actions = {
+  PREVIEW: "Preview",
+  EDIT: "Edit",
+};

@@ -2,14 +2,9 @@ import React, { useState } from "react";
 import "./Navbar.css";
 import { EditMenuModal } from "./EditMenuModal";
 import { LogoUploader } from "./LogoUploader";
+import { Actions } from "../../assets/shared/Shared";
 
-const Actions = {
-  PREVIEW: "Preview",
-  EDIT: "Edit",
-};
-
-export function Navbar() {
-  const [action, setAction] = useState(Actions.PREVIEW);
+export function Navbar({ onClickPreview, action }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [navVisibile, setNavVisible] = useState(false);
   const [menuItems, setMenuItems] = useState({
@@ -27,9 +22,7 @@ export function Navbar() {
   };
 
   const handleOnClickPreview = () => {
-    setAction((prev) =>
-      prev === Actions.EDIT ? Actions.PREVIEW : Actions.EDIT
-    );
+    onClickPreview();
   };
 
   const openEditMenuModal = () => {

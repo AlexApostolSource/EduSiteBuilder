@@ -4,10 +4,14 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { CustomCard } from "../../../shared/CustomCard/CustomCard";
 
-export const ListItem = ({ index, item }) => {
+export const ListItem = ({ index, item, isPreviewing }) => {
   const navigate = useNavigate();
 
   const openStaticPage = () => {
+    if (isPreviewing) {
+      return;
+    }
+    console.log("IsPreviewng: ", isPreviewing);
     const itemTitleSlug = item.title
       ? item.title.toLowerCase().replace(/\s+/g, "-") // Convert to slug
       : `item-${index}`;

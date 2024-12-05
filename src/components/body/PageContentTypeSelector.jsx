@@ -7,7 +7,7 @@ import { DynamicList } from "./DynamicList/DynamicList";
 import { CustomButton } from "../shared/Button/CustomButton";
 
 // Main Component
-export const PageContentTypeSelector = () => {
+export const PageContentTypeSelector = ({ isPreviwing }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedContentType, setSelectedContentType] = useState(null);
 
@@ -21,7 +21,7 @@ export const PageContentTypeSelector = () => {
       return <StaticPageContent />;
     }
     if (selectedContentType === PageContentType.LIST_CONTENT) {
-      return <DynamicList />;
+      return <DynamicList isPreviewing={isPreviwing} />;
     }
     return null;
   };

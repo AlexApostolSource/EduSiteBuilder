@@ -37,7 +37,7 @@ export const DynamicList = ({ isPreviewing }) => {
       {/* Display items in the grid-list */}
       <div className="grid-list">
         {items.map((item, index) => (
-          <ListItem index={index} item={item} />
+          <ListItem index={index} item={item} isPreviewing={isPreviewing} />
         ))}
       </div>
     </div>
