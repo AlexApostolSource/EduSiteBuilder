@@ -1,15 +1,25 @@
-.dynamic-list-modal-content {
+.modal-overlay-dynamic-list {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.dynamic-list-modal-content {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 20px;
+    background-color: white;
+    width: 20%;
+    padding: 20px;
+    border-radius: 10px;
 }
 
 .dynamic-list-buttons {

@@ -5,9 +5,12 @@ import { EditableParagraph } from "../../body/EditableParagraph/EditableParagrap
 import { CustomButton } from "../Button/CustomButton";
 
 export const CustomCard = ({ title, text, image, action }) => {
+  console.log("title: ", title);
+  console.log("text: ", text);
   return (
     <div>
       <div className="blog-card">
+        <h1>{title}</h1>
         <div className="photo">
           <ImageUploader
             width={100}
@@ -24,7 +27,7 @@ export const CustomCard = ({ title, text, image, action }) => {
           ></EditableTitle>
 
           <EditableParagraph
-            placeholder={text === null ? text : "Click here to edit paragraph"}
+            placeholder={text === null ? "Click here to edit paragraph" : text}
           ></EditableParagraph>
           <CustomButton text={"Read More"} onClick={action}></CustomButton>
         </div>
