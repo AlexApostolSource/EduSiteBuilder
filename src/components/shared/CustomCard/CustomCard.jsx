@@ -10,7 +10,6 @@ export const CustomCard = ({ title, text, image, action }) => {
   return (
     <div>
       <div className="blog-card">
-        <h1>{title}</h1>
         <div className="photo">
           <ImageUploader
             width={100}

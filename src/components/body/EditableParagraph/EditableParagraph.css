@@ -1,11 +1,39 @@
-
-  
-  .modal {
+.overlay-modal-paragraph {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;/* Ensure it's above other content */
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .text-paragraph {
-    text-align: justify;
-  }
+}
+
+.modal-paragraph {
+  display: flex;
+  width: 40%;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  padding: 20px;
+  background: white; /* Ensure the modal has a solid background */
+  border-radius: 8px; /* Rounded corners */
+  flex-direction: column;
+  gap: 20px;
+}
+
+.text-paragraph {
+  text-align: justify;
+}
+
+.edit-paragraph-modal-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}

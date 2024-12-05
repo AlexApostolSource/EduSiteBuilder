@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./EditableParagraph.css";
+import { CustomButton } from "../../shared/Button/CustomButton";
 export const EditableParagraph = ({ placeholder, onTextChange }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [paragraphText, setParagraphText] = useState(placeholder);
@@ -22,8 +23,8 @@ export const EditableParagraph = ({ placeholder, onTextChange }) => {
         {paragraphText}
       </p>
       {isModalOpen && (
-        <div className="overlay">
-          <div className="modal">
+        <div className="overlay-modal-paragraph">
+          <div className="modal-paragraph">
             <h2>Edit Text</h2>
             <input
               type="text"
@@ -31,9 +32,12 @@ export const EditableParagraph = ({ placeholder, onTextChange }) => {
               onChange={(e) => setInputText(e.target.value)}
               placeholder="Enter new text here"
             />
-            <div>
-              <button onClick={saveText}>Save</button>
-              <button onClick={handleTextClick}>Cancel</button>
+            <div className="edit-paragraph-modal-buttons">
+              <CustomButton onClick={saveText} text={"Save"}></CustomButton>
+              <CustomButton
+                onClick={handleTextClick}
+                text={"Cancel"}
+              ></CustomButton>
             </div>
           </div>
         </div>
