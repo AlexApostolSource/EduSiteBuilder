@@ -18,7 +18,7 @@ export const PageContentTypeSelector = ({ isPreviwing }) => {
 
   const renderContent = () => {
     if (selectedContentType === PageContentType.STATIC_CONTENT) {
-      return <StaticPageContent />;
+      return <StaticPageContent isPreviewing={isPreviwing} />;
     }
     if (selectedContentType === PageContentType.LIST_CONTENT) {
       return <DynamicList isPreviewing={isPreviwing} />;

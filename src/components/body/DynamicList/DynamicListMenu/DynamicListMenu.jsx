@@ -28,6 +28,7 @@ export const DynamicListMenu = ({ menuItems, onSave, onClose }) => {
         <EditableParagraph
           placeholder={paragraphText}
           onTextChange={setParagraphText}
+          truncate={true}
         ></EditableParagraph>
         <EditableTitle
           placeholder={titleText}

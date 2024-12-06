@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./EditableParagraph.css";
 import { CustomButton } from "../../shared/Button/CustomButton";
-export const EditableParagraph = ({ placeholder, onTextChange }) => {
+export const EditableParagraph = ({ placeholder, onTextChange, truncate }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [paragraphText, setParagraphText] = useState(placeholder);
   const [inputText, setInputText] = useState("");
@@ -19,7 +19,10 @@ export const EditableParagraph = ({ placeholder, onTextChange }) => {
   };
   return (
     <div>
-      <p onClick={handleTextClick} className="text-paragraph">
+      <p
+        onClick={handleTextClick}
+        className={truncate ? "text-paragraph" : "text-paragraph-truncate"}
+      >
         {paragraphText}
       </p>
       {isModalOpen && (

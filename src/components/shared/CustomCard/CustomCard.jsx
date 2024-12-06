@@ -22,11 +22,13 @@ export const CustomCard = ({ title, text, image, action }) => {
 
         <div className="description">
           <EditableTitle
-            placeholder={title === null ? title : "Click here to edit Title"}
+            placeholder={title === null ? "Click here to edit Title" : title}
+            truncate={true}
           ></EditableTitle>
 
           <EditableParagraph
             placeholder={text === null ? "Click here to edit paragraph" : text}
+            truncate={true}
           ></EditableParagraph>
           <CustomButton text={"Read More"} onClick={action}></CustomButton>
         </div>

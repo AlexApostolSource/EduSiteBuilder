@@ -26,6 +26,14 @@
 
 .text-paragraph {
   text-align: justify;
+  display: -webkit-box; /* Required for line clamping */
+  -webkit-box-orient: vertical; /* Required for line clamping */
+  overflow: hidden; /* Hide overflowing text */
+  text-overflow: ellipsis; /* Add ellipsis (...) at the end */
+  -webkit-line-clamp: 3; /* Limit to 3 lines */
+  line-height: 1.5; /* Adjust line height for spacing */
+  max-height: calc(1.5em * 3); /* Ensures a 3-line height (line-height * 3) */
+  cursor: pointer;
 }
 
 .edit-paragraph-modal-buttons {

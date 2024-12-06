@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./EditableTitle.css";
-export const EditableTitle = ({ placeholder, onTextChange }) => {
+import { CustomButton } from "../Button/CustomButton";
+export const EditableTitle = ({ placeholder, onTextChange, truncate }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [paragraphText, setParagraphText] = useState(placeholder);
   const [inputText, setInputText] = useState("");
@@ -18,12 +19,15 @@ export const EditableTitle = ({ placeholder, onTextChange }) => {
   };
   return (
     <div>
-      <h1 onClick={handleTextClick} className="text-paragraph">
+      <h1
+        onClick={handleTextClick}
+        className={truncate ? "text-paragraph" : "text-paragraph-truncate"}
+      >
         {paragraphText}
       </h1>
       {isModalOpen && (
-        <div className="overlay">
-          <div className="modal">
+        <div className="overlay-modal-paragraph">
+          <div className="modal-paragraph">
             <h2>Edit Text</h2>
             <input
               type="text"
@@ -31,9 +35,12 @@ export const EditableTitle = ({ placeholder, onTextChange }) => {
               onChange={(e) => setInputText(e.target.value)}
               placeholder="Enter new text here"
             />
-            <div>
-              <button onClick={saveText}>Save</button>
-              <button onClick={handleTextClick}>Cancel</button>
+            <div className="edit-paragraph-modal-buttons">
+              <CustomButton onClick={saveText} text={"Save"}></CustomButton>
+              <CustomButton
+                onClick={handleTextClick}
+                text={"Cancel"}
+              ></CustomButton>
             </div>
           </div>
         </div>

@@ -34,7 +34,10 @@ function App() {
           <Route
             path="/:itemTitle"
             element={
-              <StaticPageContent isPreviewing={action === Actions.EDIT} />
+              <StaticPageContent
+                isPreviewing={action === Actions.EDIT}
+                truncateText={false}
+              />
             }
           />
         </Routes>

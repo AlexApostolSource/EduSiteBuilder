@@ -1,11 +1,50 @@
+.overlay-modal-paragraph {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;/* Ensure it's above other content */
+  display: flex;
+}
 
-  
-  .modal {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .text-paragraph {
-    text-align: justify;
-  }
+.modal-paragraph {
+display: flex;
+width: 40%;
+justify-items: center;
+align-items: center;
+justify-content: center;
+height: auto;
+padding: 20px;
+background: white; /* Ensure the modal has a solid background */
+border-radius: 8px; /* Rounded corners */
+flex-direction: column;
+gap: 20px;
+}
+
+.text-paragraph {
+text-align: justify;
+}
+
+.text-paragraph-truncate {
+display: -webkit-box; /* Required for line clamping */
+-webkit-box-orient: vertical; /* Required for line clamping */
+overflow: hidden; /* Hide overflowing text */
+text-overflow: ellipsis; /* Add ellipsis (...) at the end */
+-webkit-line-clamp: 1; /* Limit to 1 lines */
+line-height: 1.5; /* Adjust line height for spacing */
+max-height: calc(1.5em * 1); /* Ensures a 3-line height (line-height * 3) */
+cursor: pointer;
+}
+
+.edit-paragraph-modal-buttons {
+display: flex;
+flex-direction: row;
+gap: 20px;
+width: 100%;
+height: 100%;
+align-items: center;
+justify-content: center;
+}
