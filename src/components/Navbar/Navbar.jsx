@@ -3,18 +3,30 @@ import "./Navbar.css";
 import { EditMenuModal } from "./EditMenuModal";
 import { Actions } from "../../assets/shared/Shared";
 import { ImageUploader } from "../body/ImgUploader/ImageUploader";
+import { MenuItem } from "../../assets/shared/Shared";
+import { MenuSubItem } from "../../assets/shared/Shared";
 
 export function Navbar({ onClickPreview, action }) {
+  const menuItemWithoutSubitem = {
+    ...MenuItem,
+    name: "Home",
+  };
+
+  const menuItemWithSubitem = {
+    ...MenuItem,
+    name: "About",
+    subitem: {
+      ...MenuSubItem,
+      name: "About subitem",
+      id: 1, // Assign an actual ID
+    },
+  };
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [navVisibile, setNavVisible] = useState(false);
   const [menuItems, setMenuItems] = useState({
-    home: "Home",
-    about: "About",
-    partners: "Partners",
-    activities: "Activities",
-    meetings: "Meetings",
-    materials: "Dissemination Materials",
-    contact: "Contact",
+    home: menuItemWithoutSubitem,
+    about: menuItemWithSubitem,
   });
 
   const toggleNav = () => {
@@ -67,9 +79,15 @@ export function Navbar({ onClickPreview, action }) {
             {" "}
             Cerrar Menu
           </button>
-          {Object.entries(menuItems).map(([key, name]) => (
-            <li key={key}>
-              <a href="#">{name}</a>
+          {Object.entries(menuItems).map(([key, menuItem]) => (
+            <li key={key} className={menuItem.subitem ? "has-subitem" : ""}>
+              <a href="#">{menuItem.name}</a>
+              {/* Dropdown for subitems */}
+              {menuItem.subitem && (
+                <ul className="dropdown">
+                  <li>{menuItem.subitem.name}</li>
+                </ul>
+              )}
             </li>
           ))}
         </ul>

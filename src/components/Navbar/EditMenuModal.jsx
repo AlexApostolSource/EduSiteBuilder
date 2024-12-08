@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./EditMenuModal.css";
 import { CustomButton } from "../shared/Button/CustomButton";
 import { ButtonType } from "../../assets/shared/Shared";
+import { MenuItem } from "../../assets/shared/Shared";
+import { MenuSubItem } from "../../assets/shared/Shared";
 
 export function EditMenuModal({ menuItems, onSave, onClose }) {
   const [editedMenuItems, setEditedMenuItems] = useState(menuItems);

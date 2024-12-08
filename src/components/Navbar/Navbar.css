@@ -11,7 +11,6 @@ header {
     padding: 2rem;
 }
 
-
 .navbar {
     font-family: Arial, sans-serif;
     font-size: large;
@@ -39,7 +38,7 @@ header {
     font-weight: 500;
 }
 
-
+/* Button styles */
 .preview-button {
     background-color: transparent;
     border: none;
@@ -53,6 +52,7 @@ header {
     text-decoration: underline;
 }
 
+/* Mobile menu button styles */
 .abrir-menu {
     display: none;
 }
@@ -101,8 +101,6 @@ header {
     .navbar-links {
         flex-direction: column;
         align-items: end;
-        
-        
     }
 
     .nav.visible {
@@ -117,12 +115,56 @@ header {
 
     .cerrar-menu-visible {
         opacity: 1;
-       display: flex;
-       text-align: center;
+        display: flex;
+        text-align: center;
     }
 
     .navbar-logo .logo-image {
         width: 120px;
         height: auto;
+    }
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+/* Dropdown menu styles */
+.has-subitem .dropdown {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+/* Show dropdown on hover */
+.has-subitem:hover .dropdown {
+    display: block;
+}
+
+/* Style the dropdown items */
+.dropdown li {
+    padding: 8px 16px;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.dropdown li:hover {
+    background-color: #f0f0f0;
+}
+
+/* Make sure the dropdown is positioned properly when in mobile view */
+@media screen and (max-width: 550px) {
+    .has-subitem .dropdown {
+        position: static; /* Display dropdown inline */
+        width: 100%;
+        margin-left: 0;
+    }
+    
+    .has-subitem:hover .dropdown {
+        display: block;
     }
 }

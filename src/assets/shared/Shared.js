@@ -14,3 +14,13 @@ export const Actions = {
   PREVIEW: "Preview",
   EDIT: "Edit",
 };
+
+export const MenuItem = {
+  name: String,
+  subitem: null,
+};
+
+export const MenuSubItem = {
+  name: String,
+  id: 0,
+};
