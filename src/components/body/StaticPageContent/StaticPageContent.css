@@ -2,6 +2,9 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
+  padding-bottom: 100px;
+  align-items: center;
+  height: auto;
   }
 
   .edit-state {
@@ -9,6 +12,21 @@
     flex-direction: column;
     gap: 40px;
     padding-top: 100px;
+    height: auto;
   }
   
- 
+ .static-page-title {
+  display: flex;
+  align-items: center;
+  justify-content: baseline;
+  padding-left: 50px;
+  width: 100%;
+ }
+
+ .static-page-paragarph {
+  display: flex;
+  align-items: center;
+  justify-content: baseline;
+  padding-left: 50px;
+  width: 100%;
+ }

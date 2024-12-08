@@ -21,7 +21,7 @@ export const EditableTitle = ({ placeholder, onTextChange, truncate }) => {
     <div>
       <h1
         onClick={handleTextClick}
-        className={truncate ? "text-paragraph" : "text-paragraph-truncate"}
+        className={truncate ? "text-paragraph-truncate" : "text-paragraph"}
       >
         {paragraphText}
       </h1>

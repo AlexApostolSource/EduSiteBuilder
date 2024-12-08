@@ -26,6 +26,9 @@
 
 .text-paragraph {
   text-align: justify;
+}
+
+.text-paragraph-truncate {
   display: -webkit-box; /* Required for line clamping */
   -webkit-box-orient: vertical; /* Required for line clamping */
   overflow: hidden; /* Hide overflowing text */

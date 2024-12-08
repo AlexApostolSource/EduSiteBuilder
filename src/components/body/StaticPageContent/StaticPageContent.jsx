@@ -10,27 +10,35 @@ import { useLocation } from "react-router-dom";
 export const StaticPageContent = ({ isPreviewing, truncateText }) => {
   const location = useLocation();
 
-  const { providedImage, providedText } = location.state || {
+  const { providedImage, providedText, providedTitle } = location.state || {
     providedImage: "https://via.placeholder.com/150",
     providedText: "Default Text",
+    providedTitle: "Click here to edit Title",
   };
 
   return (
     <div className="modal-container">
       <div className="edit-state">
-        <EditableTitle
-          truncate={truncateText}
-          placeholder={"Click here to edit Title"}
-        ></EditableTitle>
+        <div className="static-page-title">
+          <EditableTitle
+            truncate={truncateText}
+            placeholder={providedTitle}
+          ></EditableTitle>
+        </div>
         <ImageUploader
           isPreviewing={isPreviewing}
           width={100}
           widthValue={"%"}
-          height={100}
-          heightValue={"%"}
+          height={1000}
+          heightValue={"px"}
           providedImage={providedImage}
         />
-        <EditableParagraph placeholder={providedText} truncate={truncateText} />
+        <div className="static-page-paragarph">
+          <EditableParagraph
+            placeholder={providedText}
+            truncate={truncateText}
+          />
+        </div>
       </div>
     </div>
   );

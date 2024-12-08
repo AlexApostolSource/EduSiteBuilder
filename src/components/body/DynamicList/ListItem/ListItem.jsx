@@ -16,7 +16,11 @@ export const ListItem = ({ index, item, isPreviewing }) => {
       ? item.title.toLowerCase().replace(/\s+/g, "-") // Convert to slug
       : `item-${index}`;
     navigate(`/${itemTitleSlug}`, {
-      state: { providedImage: item.image, providedText: item.description },
+      state: {
+        providedImage: item.image,
+        providedText: item.description,
+        providedTitle: item.title,
+      },
     });
   };
 
