@@ -15,10 +15,22 @@ export function Navbar({ onClickPreview, action }) {
   const menuItemWithSubitem = {
     ...MenuItem,
     name: "About",
-    subitem: {
-      ...MenuSubItem,
-      name: "About subitem",
-      id: 1, // Assign an actual ID
+    subitems: {
+      subitem1: {
+        ...MenuSubItem,
+        name: "About Subitem 1",
+        id: 1, // Assign a unique ID
+      },
+      subitem2: {
+        ...MenuSubItem,
+        name: "About Subitem 2",
+        id: 2, // Assign a unique ID
+      },
+      subitem3: {
+        ...MenuSubItem,
+        name: "About Subitem 3",
+        id: 3, // Assign a unique ID
+      },
     },
   };
 
@@ -80,12 +92,18 @@ export function Navbar({ onClickPreview, action }) {
             Cerrar Menu
           </button>
           {Object.entries(menuItems).map(([key, menuItem]) => (
-            <li key={key} className={menuItem.subitem ? "has-subitem" : ""}>
+            <li key={key} className={menuItem.subitems ? "has-subitems" : ""}>
               <a href="#">{menuItem.name}</a>
               {/* Dropdown for subitems */}
-              {menuItem.subitem && (
+              {menuItem.subitems && (
                 <ul className="dropdown">
-                  <li>{menuItem.subitem.name}</li>
+                  {Object.entries(menuItem.subitems).map(
+                    ([subKey, subItem]) => (
+                      <li key={subKey}>
+                        <a href="#">{subItem.name}</a>
+                      </li>
+                    )
+                  )}
                 </ul>
               )}
             </li>
