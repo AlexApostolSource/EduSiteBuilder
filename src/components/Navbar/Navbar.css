@@ -164,18 +164,31 @@ header {
     z-index: 1000;
   }
   
-  .dropdown li {
-    padding: 5px 10px;
+ /* General button styling */
+.nav-button {
+    background-color: #ffffff; /* Nice blue color */
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    margin: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
   }
   
-  .dropdown li a {
-    color: black;
-    text-decoration: none;
-    display: block;
+  .nav-button:hover {
+    background-color: #d1d3d5; /* Darker blue on hover */
+    transform: translateY(-2px); /* Subtle lift effect */
   }
-  
-  .dropdown li:hover {
-    background-color: #f0f0f0;
+
+  /* Dropdown buttons */
+.nav-button.dropdown {
+    width: 100%; /* Full-width buttons for dropdown */
+    text-align: left;
+    padding-left: 20px; /* Add padding for hierarchy */
   }
   
 

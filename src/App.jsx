@@ -22,7 +22,6 @@ function App() {
         </header>
 
         <Routes>
-          {/* Default Route - Dynamic List */}
           <Route
             path="/"
             element={
@@ -30,14 +29,17 @@ function App() {
             }
           />
 
-          {/* Route for the StaticPageContent */}
           <Route
             path="/:itemTitle"
             element={
-              <StaticPageContent
-                isPreviewing={action === Actions.EDIT}
-                truncateText={false}
-              />
+              <PageContentTypeSelector isPreviwing={action === Actions.EDIT} />
+            }
+          />
+
+          <Route
+            path="/:itemTitle/:itemTitle"
+            element={
+              <PageContentTypeSelector isPreviwing={action === Actions.EDIT} />
             }
           />
         </Routes>
