@@ -5,13 +5,9 @@ import { Actions } from "../../assets/shared/Shared";
 import { ImageUploader } from "../body/ImgUploader/ImageUploader";
 import { MenuItem } from "../../assets/shared/Shared";
 import { MenuSubItem } from "../../assets/shared/Shared";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export function Navbar({ onClickPreview, action }) {
-  const navigate = useNavigate(); // Initialize navigate hook
-
-  const formatPath = (name) => `/${name.toLowerCase().replace(/\s+/g, "-")}`; // Generate dynamic paths
-
   const menuItemWithoutSubitem = {
     ...MenuItem,
     name: "Home",
@@ -23,17 +19,17 @@ export function Navbar({ onClickPreview, action }) {
     subitems: {
       subitem1: {
         ...MenuSubItem,
-        name: "About Subitem 1",
+        name: "Subitem 1",
         id: 1,
       },
       subitem2: {
         ...MenuSubItem,
-        name: "About Subitem 2",
+        name: "Subitem 2",
         id: 2,
       },
       subitem3: {
         ...MenuSubItem,
-        name: "About Subitem 3",
+        name: "Subitem 3",
         id: 3,
       },
     },
@@ -63,14 +59,6 @@ export function Navbar({ onClickPreview, action }) {
   const handleSave = (updatedMenuItems) => {
     setMenuItems(updatedMenuItems);
     setIsModalOpen(false);
-  };
-
-  const handleNavigation = (name, parentName = "") => {
-    const path = parentName
-      ? `${formatPath(parentName)}${formatPath(name)}`
-      : formatPath(name);
-    navigate(path); // Navigate to dynamically generated path
-    setNavVisible(false); // Optionally close the menu after navigation
   };
 
   return (
@@ -105,12 +93,18 @@ export function Navbar({ onClickPreview, action }) {
           </button>
           {Object.entries(menuItems).map(([key, menuItem]) => (
             <li key={key} className={menuItem.subitems ? "has-subitems" : ""}>
-              <button
-                className="nav-button"
-                onClick={() => handleNavigation(menuItem.name)}
-              >
-                {menuItem.name}
-              </button>
+              {menuItem.subitems ? (
+                <p className="nav-button">{menuItem.name} </p>
+              ) : (
+                <Link
+                  className="nav-button"
+                  to={{
+                    pathname: `/${menuItem.name.replace(/\s/g, "")}`,
+                  }}
+                >
+                  {menuItem.name}
+                </Link>
+              )}
 
               {/* Dropdown for subitems */}
               {menuItem.subitems && (
@@ -118,14 +112,16 @@ export function Navbar({ onClickPreview, action }) {
                   {Object.entries(menuItem.subitems).map(
                     ([subKey, subItem]) => (
                       <li key={subKey}>
-                        <button
+                        <Link
                           className="nav-button"
-                          onClick={() =>
-                            handleNavigation(subItem.name, menuItem.name)
-                          }
+                          to={`/${menuItem.name.replace(
+                            / /g,
+                            ""
+                          )}/${subItem.name.replace(/ /g, "")}`}
                         >
+                          {console.log(subItem.name)}
                           {subItem.name}
-                        </button>
+                        </Link>
                       </li>
                     )
                   )}

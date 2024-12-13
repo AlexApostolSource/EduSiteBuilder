@@ -3,11 +3,10 @@ import { Navbar } from "./components/Navbar/Navbar";
 import PageContentTypeSelector from "./components/body/PageContentTypeSelector";
 import { CustomFooter } from "./components/body/Footer/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import StaticPageContent from "./components/body/StaticPageContent/StaticPageContent";
 import { useState } from "react";
 import { Actions } from "./assets/shared/Shared";
 
-function App() {
+export const Layout = ({ children }) => {
   const [action, setAction] = useState(Actions.PREVIEW);
   const handleOnClickPreview = () => {
     setAction((prev) =>
@@ -15,12 +14,21 @@ function App() {
     );
   };
   return (
-    <Router>
-      <>
-        <header>
-          <Navbar onClickPreview={handleOnClickPreview} action={action} />
-        </header>
+    <>
+      <header>
+        <Navbar onClickPreview={handleOnClickPreview} action={action} />
+      </header>
+      <main>{children}</main>
+      <CustomFooter />
+    </>
+  );
+};
 
+function App() {
+  const [action, setAction] = useState(Actions.PREVIEW);
+  return (
+    <Router>
+      <Layout>
         <Routes>
           <Route
             path="/"
@@ -28,24 +36,21 @@ function App() {
               <PageContentTypeSelector isPreviwing={action === Actions.EDIT} />
             }
           />
-
           <Route
             path="/:itemTitle"
             element={
               <PageContentTypeSelector isPreviwing={action === Actions.EDIT} />
             }
           />
-
           <Route
-            path="/:itemTitle/:itemTitle"
+            path="/:parentTitle/:itemTitle"
             element={
               <PageContentTypeSelector isPreviwing={action === Actions.EDIT} />
             }
           />
+          <Route path="*" element={<div>Page Not Found</div>} />
         </Routes>
-
-        <CustomFooter />
-      </>
+      </Layout>
     </Router>
   );
 }
