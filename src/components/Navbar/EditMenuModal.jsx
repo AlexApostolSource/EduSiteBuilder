@@ -37,7 +37,7 @@ export function EditMenuModal({ menuItems, onSave, onClose }) {
       const newKey = `item-${Date.now()}`;
       setEditedMenuItems((prevItems) => ({
         ...prevItems,
-        [newKey]: { name: newMenuItem.trim(), subitems: {} },
+        [newKey]: { name: newMenuItem.trim(), subitems: null }, // Initialize subitems as null
       }));
       setNewMenuItem("");
     }
@@ -50,7 +50,10 @@ export function EditMenuModal({ menuItems, onSave, onClose }) {
         const updatedItems = { ...prevItems };
 
         // Initialize subitems if not already present
-        if (!updatedItems[parentKey].subitems) {
+        if (
+          !updatedItems[parentKey].subitems ||
+          updatedItems[parentKey].subitems === null
+        ) {
           updatedItems[parentKey].subitems = {};
         }
 

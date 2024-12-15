@@ -97,7 +97,6 @@ export function Navbar({ onClickPreview, action }) {
                 <p className="nav-button">{menuItem.name} </p>
               ) : (
                 <Link
-                  className="nav-button"
                   to={{
                     pathname: `/${menuItem.name.replace(/\s/g, "")}`,
                   }}
@@ -106,7 +105,7 @@ export function Navbar({ onClickPreview, action }) {
                 </Link>
               )}
 
-              {/* Dropdown for subitems */}
+              {console.log("menuItems", menuItems)}
               {menuItem.subitems && (
                 <ul className="dropdown">
                   {Object.entries(menuItem.subitems).map(
